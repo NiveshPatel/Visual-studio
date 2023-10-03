@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visual stdio</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">
+
+            <div id="upperchild">
+                <div id="child1">
+                    <span>
+                        <i class="ri-folders-fill"></i>
+
+                    </span>
+                    <i class="ri-search-line"></i>
+                    <i class="ri-share-fill"></i>
+                    <i class="ri-play-fill"></i>
+
+                    <i class="ri-windows-fill"></i>
+                </div>
+                <div id="child2">
+                    <div id="first">
+
+                        <h1>explorer</h1>
+                        <i class="ri-more-fill"></i>
+                    </div>
+                    <div id="second">
+
+                        <span>
+                            <i class="ri-arrow-down-s-line"></i>
+                        </span>
+                        <h1>backend</h1>
+                        <div id="icons">
+                            <i id="fileicon" class="ri-file-line"></i>
+
+                            <i id="foldericon" class="ri-folder-add-line"></i>
+                           <a href="/"> <i id="restarticon" class="ri-restart-line"></i></a>
+                            <i id="collapseicon" class="ri-file-copy-line"></i>
+                        </div>
+
+                    </div>
+                    <div id="third">
+
+                        <form id="formdiv" action="/createfile">
+                        <input class="form" id="form1" type="text" name="filename" placeholder="file name">
+                            
+                        </form>
+                        <form id="formdiv" action="/createfolder">
+                        <input class="form" id="form2" type="text" name="foldername" placeholder="folder name">
+
+                        </form>
+
+                    </div>
+
+
+                    <div id="samplefiles">
+                        <% files.forEach(function(file){ %>
+                            <% if(file.isfolder===true){ %>
+                                <div id="files">
+                                    <i id="foldericon" class="ri-folder-add-line"></i>
+
+                                    <a href="/file/<%= file.filename %>"><h1>
+                                        <%= file.filename %>
+                                    </h1></a>
+                                    <i class="ri-delete-bin-line"></i>
+                                </div>
+                                <% } else { %>
+                                    <div id="files">
+                                        <i class="ri-file-line"></i>
+                                        <a href="/file/<%= file.filename %>">
+                                            <h1>
+                                                <%= file.filename %>
+                                            </h1>
+                                        </a>
+                                        <i class="ri-delete-bin-line"></i>
+                                    </div>
+                                    <% } %>
+
+
+
+                                        <% }) %>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div id="lowerchild">
+                <i class="ri-account-circle-line"></i>
+                <i class="ri-settings-2-line"></i>
+            </div>
+        </div>
+        <div id="rgt">
+            <div id="navbar">
+                <div id="child"><h1><%= filename %></h1></div>
+                <button id="save" >Save</button>
+            </div>
+            <textarea></textarea>
+        </div>
+    </div>
+</body>
+<script src="/javascripts/script.js"></script>
+
+</html>
